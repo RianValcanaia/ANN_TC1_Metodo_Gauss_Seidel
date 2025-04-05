@@ -1,0 +1,1 @@
+# Trabalho Método Gauss-Seidel
