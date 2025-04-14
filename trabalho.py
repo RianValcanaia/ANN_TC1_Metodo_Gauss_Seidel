@@ -1,5 +1,5 @@
-# Matriz testes 
-A = [[7,1,-1,4], 
+# Matriz testes
+A = [[7,1,-1,4],
      [1,-5,1,-2],
      [1, 0, 3,-1],
      [3, 1, -3, 8]]
@@ -12,30 +12,31 @@ x_inicial = [-0.3, 1.3, 2.8,-2.3]
 
 # calculo Gauss-seidel
 #### primeiro: ajustar os as linhas para convergência (não sei se essa é a melhor solução)
-for i in range(len(A)):
-    soma = 0
-    melhor_linha = i
-    for j in range(len(A)):
-        if i != j:
-            soma += abs(A[i][j])
-        
-    if A[i][i] < soma:
-        melhor_criterio = abs(A[i][i]) - soma 
+def testeConvergencia(A):
+    for i in range(len(A)):
+        soma = 0
+        melhor_linha = i
+        for j in range(len(A)):
+            if i != j:
+                soma += abs(A[i][j])
 
-        for k in range (i+1, len(A)):
-            soma_k = 0
-            for j in range (len(A)):
-                if i != j:
-                    soma_k += abs(A[k][j])
+        if A[i][i] < soma:
+            melhor_criterio = abs(A[i][i]) - soma
 
-            criterio_k = abs(A[k][i]) - soma_k
+            for k in range (i+1, len(A)):
+                soma_k = 0
+                for j in range (len(A)):
+                    if i != j:
+                        soma_k += abs(A[k][j])
 
-            if criterio_k > melhor_criterio:
-                melhor_criterio = criterio_k
-                melhor_linha = k
+                criterio_k = abs(A[k][i]) - soma_k
 
-    if melhor_linha != i:
-        A[i], A[melhor_linha] = A[melhor_linha], A[i]
+                if criterio_k > melhor_criterio:
+                    melhor_criterio = criterio_k
+                    melhor_linha = k
+
+        if melhor_linha != i:
+            A[i], A[melhor_linha] = A[melhor_linha], A[i]
 
 #### descobrindo a precisao necessaria
 expoente = 0
@@ -60,7 +61,7 @@ def arredondamento (numero, casas_decimais):
             parte_inteira += 1
     elif parte_decimal > 0.5:
         parte_inteira += 1
-    
+
     return parte_inteira / fator
 
 #### calculo Gauss-Seidel
@@ -70,7 +71,7 @@ diferenca_maior = float('inf')
 while(diferenca_maior > criterio_parada):
     diferenca_maior = 0
     for i, linha in enumerate(A):
-        soma = 0    
+        soma = 0
         for j, elemento in enumerate(linha):
             if j != i:
                 soma += elemento * x_resultado[j]
@@ -88,10 +89,33 @@ while(diferenca_maior > criterio_parada):
 for valor in x_resultado:
     print(f"{valor:.5f}")
 
-# calculo método de jacobi, com teste de convergência, trocas de linha
+# calculo pelo método de jacobi, com teste de convergência, trocas de linha
+def jacobi(A, b, x_inicial, criterio_parada, precisao):
+    x_resultado = x_inicial[:] # cria uma cópia do vetor resultado
+    diferenca_maior = float('inf') # garantindo que diferenca_maior > criterio_parada na primeira iteracao para que haja pelo menos uma iteracao
 
-# vetor resiiduo;
+    while diferenca_maior > criterio_parada:
+        x_anterior = x_resultado[:]  # cria uma cópia dos valores antigos
+        diferenca_maior = 0
 
+        for i, linha in enumerate(A):
+            soma = 0 # inicializa a soma aqui pois ela zera a cada novo x calculado
+            for j, elemento in enumerate(linha):
+                if j != i: # se o elemento nao for da diagonal principal
+                    soma += elemento * x_anterior[j]  # usa os valores antigos na hora de somar
+
+            novo_valor = (b[i] - soma) / A[i][i] # formula
+            novo_valor = arredondamento(novo_valor, precisao) # arredonda
+            diferenca = abs(x_anterior[i] - novo_valor) # calcula a diferenca
+
+            if diferenca > diferenca_maior:
+                diferenca_maior = diferenca
+
+            x_resultado[i] = novo_valor  # atualiza só depois de calcular tudo
+
+    return x_resultado
+
+# vetor residuo;
 
 
 
