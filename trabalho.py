@@ -80,6 +80,7 @@ while(diferenca_maior > criterio_parada):
         x_resultado[i] = novo_valor
 
 #### printa resultado
+print("x̄ =\n")
 for valor in x_resultado:
     print(f"{valor:.5f}")
 
@@ -94,11 +95,8 @@ def qualidadeAjusteVetorResiduo(A, b, x_resultado):
             soma += A[i][j] * x_resultado[j] # produto matricial
         residuo = soma - b[i] # quando termino de iterar todos as colunas da matriz e eu ja tenho o resultado da primeira linha da matriz resultante, eu tiro a diferença com a linha respectiva do vetor de termos independentes.
         vetResiduo.append(residuo) # no final apenas adiciona o residuo no fim do vetor residuo, o método .append() faz exatamente isso
+    print("\nVetor Residuo:\n")
     for valor in vetResiduo: # printar o vetor residuo
         print(f"{valor:.5f}") # .5f indica que é para formatar o print para 5 casas decimais
 
 qualidadeAjusteVetorResiduo(A, b, x_resultado) # chama a função do vetor residuo
-
-
-
-
