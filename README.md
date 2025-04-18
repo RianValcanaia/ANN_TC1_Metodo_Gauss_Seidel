@@ -24,8 +24,10 @@ Sistema linear resolvido:
 
 ## 🛠️ Funcionalidades
 
+- `casas_precisao()` — informa o número de casas necessárias para atingir o critério de convergência
+- `ajusta_convergencia()` — verifica e ajusta a matriz para satisfazer o critério de linhas
+- `arredondamento()` — arredonda o número conforme norma
 - `gauss_seidel()` — resolve o sistema linear iterativamente
-- `testeConvergencia()` — verifica e ajusta a matriz para satisfazer o critério de linhas
 - `qualidadeAjusteVetorResiduo()` — calcula o vetor resíduo r = Ax - b 
 - `print_matriz()` — exibe a matriz formatada em forma matricial
 
@@ -50,7 +52,7 @@ Sistema linear resolvido:
 ## 👨‍🏫 Envolvidos
 
 - Professor: Jarbas Ferrari
-- Estudantes: [Lucas Macedo](https://github.com/lucasomac0) e Rian Valcanaia
+- Estudantes: [Lucas Macedo](https://github.com/lucasomac0) e [Rian Valcanaia](https://github.com/RianValcanaia)
 
 ## 📅 Curso
 
