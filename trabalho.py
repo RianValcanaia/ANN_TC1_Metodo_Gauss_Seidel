@@ -123,4 +123,4 @@ vetResiduo = qualidadeAjusteVetorResiduo(A, b, x_resultado) # chama a função d
 ## printa vetor resíduo
 print("\nVetor Residuo:")
 for valor in vetResiduo: # printar o vetor residuo
-    print(f"{valor:.{precisao}f}") # .5f indica que é para formatar o print para 5 casas decimais
+    print(f"{valor:.{precisao}f}") # .{precisao}f indica que é para formatar o print com numero de precisao de casas após a virgula
