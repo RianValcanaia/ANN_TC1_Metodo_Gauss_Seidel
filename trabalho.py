@@ -11,7 +11,7 @@ criterio_parada = 0.0005
 x_inicial = [-0.3, 1.3, 2.8,-2.3]
 
 # calculo Gauss-seidel
-#### primeiro: ajustar os as linhas para convergência 
+#### primeiro: ajustar os as linhas para convergência
 for i in range(len(A)):
     soma = 0
     melhor_linha = i
@@ -23,7 +23,7 @@ for i in range(len(A)):
         for k in range (i+1, len(A)):
             soma_k = 0
             for j in range (len(A)):
-                if k != j:
+                if i != j:
                     soma_k += abs(A[k][j])
             criterio_k = abs(A[k][i]) - soma_k
             if criterio_k > melhor_criterio:
