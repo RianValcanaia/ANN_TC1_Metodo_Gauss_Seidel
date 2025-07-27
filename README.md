@@ -29,6 +29,8 @@
 - Aplicar **troca de linhas** quando necessário para satisfazer o critério.
 - Avaliar a **qualidade do ajuste** utilizando o **vetor resíduo** `r = Ax - b`.
 
+[⬆ Voltar ao topo](#topo)
+
 ## 📥 Entradas do sistema
 
 Sistema linear resolvido:
@@ -41,6 +43,8 @@ Sistema linear resolvido:
 - **Chute inicial**: `[-0.3, 1.3, 2.8, -2.3]`
 - **Critério de parada**: ε ≤ 0.0005
 
+[⬆ Voltar ao topo](#topo)
+
 ## 🧰 Funcionalidades
 
 - `casas_precisao()` — informa o número de casas necessárias para atingir o critério de convergência
@@ -49,6 +53,8 @@ Sistema linear resolvido:
 - `gauss_seidel()` — resolve o sistema linear iterativamente
 - `qualidadeAjusteVetorResiduo()` — calcula o vetor resíduo r = Ax - b 
 - `print_matriz()` — exibe a matriz formatada em forma matricial
+
+[⬆ Voltar ao topo](#topo)
 
 ## 📊 Resultados esperados
 
@@ -62,6 +68,8 @@ Sistema linear resolvido:
   [0.00021, -0.00005, -0.00013, 0.00003]
   ```
 
+[⬆ Voltar ao topo](#topo)
+
 ## 📂 Como executar
 
 1. Copie o código do arquivo "trabalho.py" no [Google Colab](https://colab.research.google.com)
@@ -73,6 +81,7 @@ Ou fazendo o dowload e rodar com:
 python3 trabalho.py
 ```
 
+[⬆ Voltar ao topo](#topo)
 
 ## 👨‍🏫 Envolvidos
 
@@ -81,11 +90,15 @@ python3 trabalho.py
   - [Lucas Macedo](https://github.com/lucasomac0)
   - [Rian Carlos Valcanaia](https://github.com/RianValcanaia)
 
+[⬆ Voltar ao topo](#topo)
+
 ## 📅 Curso
 
 - Universidade: Universidade do Estado de Santa Catarina (UDESC)
 - Disciplina: Análise Numérica
 - Semestre: 4º
+
+[⬆ Voltar ao topo](#topo)
 
 ## 📄 Código-fonte
 
